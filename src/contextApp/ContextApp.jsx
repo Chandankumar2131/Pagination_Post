@@ -9,10 +9,18 @@ export function ContextApp({ children }) {
   const [posts, setPosts] = useState([]);
   const [totalPages, setTotalPages] = useState("");
 
-  const fetchData = async (page=1) => {
+  const fetchData = async (page=1,tag=null, category) => {
     setLoading(true)
+    let baseUrl ='https://codehelp-apis.vercel.app/api/get-blogs'
+     const url = `${baseUrl}?page=${page}`;
+if(tag){
+  url+=`&tag=${tag}`
+}
+if(category){
+  url+=`&category=${category}`
+}
     try {
-      const url = `https://codehelp-apis.vercel.app/api/get-blogs?page=${page}`;
+     
       const res = await fetch(url);
       const finalData = await res.json();
       setPage(finalData.page)
