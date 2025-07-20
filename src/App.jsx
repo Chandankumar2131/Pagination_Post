@@ -9,6 +9,7 @@ import Home from "./pages/Home"
 import BlogsPage from "./pages/BlogsPage"
 import CategoryPage from "./pages/CategoryPage"
 import TagsPage from "./pages/TagsPage"
+
 export default function App() {
   const { fetchData } = useContext(DataContext);
 
